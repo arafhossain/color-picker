@@ -4,6 +4,7 @@ import PaletteList from "./PaletteList";
 import seedColors from "./seedColors";
 import { generatePalette } from "./ColorHelpers";
 import { Switch, Route } from "react-router-dom";
+import SingleColorPalette from "./SingleColorPalette";
 class App extends Component {
   getPalette(id) {
     return seedColors.find(function(palette) {
@@ -16,7 +17,9 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={routeProps => <PaletteList palettes={seedColors} {...routeProps}/>}
+          render={routeProps => (
+            <PaletteList palettes={seedColors} {...routeProps} />
+          )}
         />
         <Route
           exact
@@ -29,7 +32,11 @@ class App extends Component {
             />
           )}
         />
-        <Route exact path="/palette/:paletteId/:colorId" render={() => <h2>You made it!</h2>}/>
+        <Route
+          exact
+          path="/palette/:paletteId/:colorId"
+          render={() => <SingleColorPalette />}
+        />
       </Switch>
       // <div className="App">
       //   <Palette palette={generatePalette(seedColors[4])} />
