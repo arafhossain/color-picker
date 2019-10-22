@@ -25,6 +25,7 @@ class Palette extends Component {
         key={color.id}
         id={color.id}
         paletteId={this.props.palette.id}
+        showMore={true}
       />
     ));
     return (
