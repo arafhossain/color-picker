@@ -1,37 +1,45 @@
-import React, { Component } from 'react'
-import ColorBox from './ColorBox'
-
+import React, { Component } from "react";
+import ColorBox from "./ColorBox";
+import NavBar from "./NavBar";
+import PaletteFooter from './PaletteFooter'
 class SingleColorPalette extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
+      colorFormat: "hex",
       colors: this.getColors(this.props.palette, this.props.colorId)
-    }
+    };
+    this.changeFormat = this.changeFormat.bind(this);
   }
-  getColors(palette, wantedColor){
-    let shades = []
+  getColors(palette, wantedColor) {
+    let shades = [];
     let allColors = palette.colors;
-    for(let key in allColors){
+    for (let key in allColors) {
       shades = shades.concat(
-        allColors[key].filter(color => (
-          color.id === wantedColor
-        ))
-      )
+        allColors[key].filter(color => color.id === wantedColor)
+      );
     }
     return shades.slice(1);
   }
-  render(){
+  changeFormat(value) {
+    this.setState({ colorFormat: value });
+  }
+  render() {
     let colorBoxes = this.state.colors.map(color => (
-      <ColorBox key={color.id} name={color.name} background={color.hex} showMore={false}/>
-    ))
+      <ColorBox
+        key={color.id}
+        name={color.name}
+        background={color[this.state.colorFormat]}
+        showMore={false}
+      />
+    ));
     return (
       <div className="Palette">
-        <h2>Single Colors</h2>
-        <div className="Palette-colors">
-          {colorBoxes}
-        </div>
+        <NavBar handleChange={this.changeFormat} showSlider={false} />
+        <div className="Palette-colors">{colorBoxes}</div>
+        <PaletteFooter emoji={this.props.palette.emoji} name={this.props.palette.paletteName}/>
       </div>
-    )
+    );
   }
 }
 
