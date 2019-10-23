@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
+import styles from './styles/PaletteStyles'
+import {withStyles} from '@material-ui/styles'
 
 class SingleFooter extends Component {
   render(){
     return (
-      <footer className="Palette-footer">
+      <footer className={this.props.classes.paletteFooter}>
         {this.props.name}
-        <span className='emoji'>{this.props.emoji}</span>
+        <span className={this.props.classes.emoji}>{this.props.emoji}</span>
       </footer>
     )
   }
 }
 
-export default SingleFooter;
+export default withStyles(styles)(SingleFooter);
