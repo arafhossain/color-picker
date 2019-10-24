@@ -11,9 +11,10 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import { ChromePicker } from "react-color";
+import Button from "@material-ui/core/Button";
 
-
-const drawerWidth = 240;
+const drawerWidth = 400;
 
 const styles = theme => ({
   root: {
@@ -72,8 +73,8 @@ const styles = theme => ({
   }
 });
 class NewPaletteForm extends Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
       open: false
     };
@@ -81,13 +82,13 @@ class NewPaletteForm extends Component {
     this.handleDrawerClose = this.handleDrawerClose.bind(this);
   }
 
-  handleDrawerOpen(){
+  handleDrawerOpen() {
     this.setState({ open: true });
-  };
+  }
 
-  handleDrawerClose(){
+  handleDrawerClose() {
     this.setState({ open: false });
-  };
+  }
 
   render() {
     const { classes, theme } = this.props;
@@ -135,6 +136,20 @@ class NewPaletteForm extends Component {
             </IconButton>
           </div>
           <Divider />
+          <Typography variant="h4">Design Your Palette</Typography>
+          <div>
+            <Button variant="contained" color="secondary">
+              Clear Palette
+            </Button>
+            <Button variant="contained" color="primary">
+              Random Color
+            </Button>
+          </div>
+          <ChromePicker
+            color="red"
+            onChangeComplete={newColor => console.log(newColor)}
+          />
+          <Button variant="contained" color="primary">Add Color</Button>
         </Drawer>
         <main
           className={classNames(classes.content, {
@@ -142,11 +157,10 @@ class NewPaletteForm extends Component {
           })}
         >
           <div className={classes.drawerHeader} />
-          
         </main>
       </div>
     );
   }
 }
 
-export default withStyles(styles, {withTheme: true})(NewPaletteForm);
+export default withStyles(styles, { withTheme: true })(NewPaletteForm);
