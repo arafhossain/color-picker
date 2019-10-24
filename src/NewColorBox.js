@@ -19,7 +19,7 @@ class NewColorBox extends Component {
         className={this.props.classes.root}
         style={{ backgroundColor: this.props.color }}
       >
-        {this.props.color}
+        {this.props.name}
       </div>
     );
   }
