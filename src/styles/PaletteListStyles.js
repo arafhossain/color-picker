@@ -13,6 +13,6 @@ export default {
     flexDirection: "column",
     flexWrap: "wrap"
   },
-  nav: { display: "flex", width: "100%", justifyContent: "space-between", color: 'white' },
+  nav: { display: "flex", width: "100%", justifyContent: "space-between", color: 'white', alignItems: 'center', '& a' : {color: 'white', textDecoration: 'none'} },
   palettes: {boxSizing: 'border-box', width: '100%', display: 'grid', gridTemplateColumns: 'repeat(3, 30%)', gridGap: '5%'}
 };
