@@ -14,7 +14,8 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { ChromePicker } from "react-color";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import Button from "@material-ui/core/Button";
-import NewColorBox from "./NewColorBox";
+import NewColorBoxList from "./NewColorBoxList";
+import {arrayMove} from 'react-sortable-hoc'
 
 const drawerWidth = 400;
 
@@ -151,6 +152,11 @@ class NewPaletteForm extends Component {
       )
     });
   }
+  onSortEnd = ({oldIndex, newIndex}) => {
+    this.setState(({currentPalette}) => ({
+      currentPalette: arrayMove(currentPalette, oldIndex, newIndex)
+    }))
+  }
 
   render() {
     const { classes, theme } = this.props;
@@ -256,14 +262,12 @@ class NewPaletteForm extends Component {
           })}
         >
           <div className={classes.drawerHeader} />
-          {this.state.currentPalette.map(color => (
-            <NewColorBox
-              key={color.name}
-              color={color.color}
-              name={color.name}
-              handleClick={() => this.removeColor(color.name)}
-            />
-          ))}
+          <NewColorBoxList
+            currentPalette={this.state.currentPalette}
+            removeColor={this.removeColor}
+            axis = 'xy'
+            onSortEnd={this.onSortEnd}
+          />
         </main>
       </div>
     );
