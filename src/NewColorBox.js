@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/styles";
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from "@material-ui/icons/Delete";
 
 let styles = {
   root: {
@@ -10,11 +10,12 @@ let styles = {
     display: "inline-block",
     position: "relative",
     marginBottom: "-3.5px",
-    '&:hover svg' : {
-      color: 'white',
-      transform: 'scale(1.2)'
+    "&:hover svg": {
+      color: "white",
+      transform: "scale(1.2)"
     }
-  }, boxContent : {
+  },
+  boxContent: {
     position: "absolute",
     width: "100%",
     left: "0px",
@@ -24,17 +25,18 @@ let styles = {
     letterSpacing: "1px",
     textTransform: "uppercase",
     fontSize: "12px",
-    display: 'flex',
-    justifyContent: 'space-between'
-  }, deleteIcon : {
-    color: 'rgba(0,0,0,0.5)',
-    transition: 'all 0.3s ease-in-out'
+    display: "flex",
+    justifyContent: "space-between"
+  },
+  deleteIcon: {
+    color: "rgba(0,0,0,0.5)",
+    transition: "all 0.3s ease-in-out"
   }
 };
 
 class NewColorBox extends Component {
   render() {
-    let {classes} = this.props;
+    let { classes } = this.props;
     return (
       <div
         className={classes.root}
@@ -42,7 +44,7 @@ class NewColorBox extends Component {
       >
         <div className={classes.boxContent}>
           <span>{this.props.name}</span>
-          <DeleteIcon className={classes.deleteIcon}/>
+          <DeleteIcon className={classes.deleteIcon} onClick={this.props.handleClick}/>
         </div>
       </div>
     );
