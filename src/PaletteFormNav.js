@@ -8,9 +8,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import Button from "@material-ui/core/Button";
 import { drawerWidth } from "./NewPaletteForm";
+import PaletteDialogForm from './PaletteDialogForm'
 
 let styles = theme => ({
   root: {
@@ -42,20 +42,10 @@ let styles = theme => ({
 class PaletteFormNav extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      newPaletteName: ""
-    };
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
-  }
-  componentDidMount() {
-    ValidatorForm.addValidationRule("isPaletteNameUnique", value =>
-      this.props.palettes.every(
-        ({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
-      )
-    );
   }
   render() {
     let { classes, open } = this.props;
@@ -83,26 +73,7 @@ class PaletteFormNav extends Component {
             </Typography>
           </Toolbar>
           <div className={classes.navButtons}>
-              <ValidatorForm
-                onSubmit={() =>
-                  this.props.savePalette(this.state.newPaletteName)
-                }
-              >
-                <TextValidator
-                  value={this.state.newPaletteName}
-                  name="newPaletteName"
-                  label="Palette Name"
-                  onChange={this.handleChange}
-                  validators={["required", "isPaletteNameUnique"]}
-                  errorMessages={[
-                    "Enter palette name",
-                    "Palette name already taken"
-                  ]}
-                />
-                <Button variant="contained" color="primary" type="submit">
-                  Save Palette
-                </Button>
-              </ValidatorForm>
+              <PaletteDialogForm palettes={this.props.palettes} savePalette={this.props.savePalette}/>
               <Link to="/">
                 <Button variant="contained" color="secondary">
                   Go Back
