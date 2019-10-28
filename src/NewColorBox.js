@@ -10,7 +10,7 @@ let styles = {
     margin: "0 auto",
     display: "inline-block",
     position: "relative",
-    marginBottom: "-3.5px",
+    marginBottom: "-5px",
     "&:hover svg": {
       color: "white",
       transform: "scale(1.2)"
