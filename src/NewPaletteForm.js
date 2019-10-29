@@ -105,8 +105,9 @@ class NewPaletteForm extends Component {
   }
   savePalette(newName) {
     let newPalette = {
-      paletteName: newName,
-      id: newName.toLowerCase().replace(/ /g, "-"),
+      paletteName: newName.paletteName,
+      id: newName.paletteName.toLowerCase().replace(/ /g, "-"),
+      emoji: newName.emoji,
       colors: this.state.currentPalette
     };
     this.props.savePalette(newPalette);
