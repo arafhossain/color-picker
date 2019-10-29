@@ -10,7 +10,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@material-ui/core/Button";
 import { drawerWidth } from "./NewPaletteForm";
-import PaletteDialogForm from './PaletteDialogForm'
+import PaletteDialogForm from "./PaletteDialogForm";
 
 let styles = theme => ({
   root: {
@@ -23,6 +23,7 @@ let styles = theme => ({
     }),
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: 'center',
     height: "70px"
   },
   appBarShift: {
@@ -37,15 +38,29 @@ let styles = theme => ({
     marginLeft: 12,
     marginRight: 20
   },
-  navButtons: {}
+  navButtons: {
+    marginRight: "1rem",
+    '& a':{
+      textDecoration: 'none'
+    }
+  },
+  button: {
+    margin: "0 0.5rem",
+  },
+
 });
 class PaletteFormNav extends Component {
   constructor(props) {
     super(props);
+    this.state = { formShowing: false };
     this.handleChange = this.handleChange.bind(this);
+    this.showForm = this.showForm.bind(this);
   }
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
+  }
+  showForm() {
+    this.setState({ formShowing: true });
   }
   render() {
     let { classes, open } = this.props;
@@ -73,14 +88,31 @@ class PaletteFormNav extends Component {
             </Typography>
           </Toolbar>
           <div className={classes.navButtons}>
-              <PaletteDialogForm palettes={this.props.palettes} savePalette={this.props.savePalette}/>
-              <Link to="/">
-                <Button variant="contained" color="secondary">
-                  Go Back
-                </Button>
-              </Link>
-            </div>
+            <Link to="/" className={classes.link}>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+              >
+                Go Back
+              </Button>
+            </Link>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.showForm}
+              className={classes.button}
+            >
+              ADD NEW PALETTE!
+            </Button>
+          </div>
         </AppBar>
+        {this.state.formShowing && (
+          <PaletteDialogForm
+            palettes={this.props.palettes}
+            savePalette={this.props.savePalette}
+          />
+        )}
       </div>
     );
   }
