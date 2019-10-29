@@ -54,13 +54,17 @@ class PaletteFormNav extends Component {
     super(props);
     this.state = { formShowing: false };
     this.handleChange = this.handleChange.bind(this);
-    this.showForm = this.showForm.bind(this);
+    this.openForm = this.openForm.bind(this);
+    this.closeForm = this.closeForm.bind(this);
   }
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
-  showForm() {
+  openForm() {
     this.setState({ formShowing: true });
+  }
+  closeForm(){
+    this.setState({formShowing: false});
   }
   render() {
     let { classes, open } = this.props;
@@ -100,7 +104,7 @@ class PaletteFormNav extends Component {
             <Button
               variant="contained"
               color="primary"
-              onClick={this.showForm}
+              onClick={this.openForm}
               className={classes.button}
             >
               ADD NEW PALETTE!
@@ -111,6 +115,7 @@ class PaletteFormNav extends Component {
           <PaletteDialogForm
             palettes={this.props.palettes}
             savePalette={this.props.savePalette}
+            closeForm={this.closeForm}
           />
         )}
       </div>

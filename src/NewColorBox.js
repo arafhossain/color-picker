@@ -31,7 +31,8 @@ let styles = {
   },
   deleteIcon: {
     color: "rgba(0,0,0,0.5)",
-    transition: "all 0.3s ease-in-out"
+    transition: "all 0.3s ease-in-out",
+    cursor: 'pointer'
   }
 };
 
