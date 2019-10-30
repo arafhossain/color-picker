@@ -4,6 +4,9 @@ let styles = theme => ({
   root: {
     display: "flex"
   },
+  hide: {
+    display: "none"
+  },
   appBar: {
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
@@ -11,8 +14,8 @@ let styles = theme => ({
     }),
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: 'center',
-    height: "70px"
+    alignItems:'center',
+    height: "65px"
   },
   appBarShift: {
     width: `calc(100% - ${DRAWER_WIDTH}px)`,

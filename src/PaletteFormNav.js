@@ -7,10 +7,10 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import EditIcon from '@material-ui/icons/Edit';
 import Button from "@material-ui/core/Button";
 import PaletteDialogForm from "./PaletteDialogForm";
-import styles from './styles/PaletteFormNavStyles'
+import styles from "./styles/PaletteFormNavStyles";
 
 class PaletteFormNav extends Component {
   constructor(props) {
@@ -26,8 +26,8 @@ class PaletteFormNav extends Component {
   openForm() {
     this.setState({ formShowing: true });
   }
-  closeForm(){
-    this.setState({formShowing: false});
+  closeForm() {
+    this.setState({ formShowing: false });
   }
   render() {
     let { classes, open } = this.props;
@@ -48,7 +48,7 @@ class PaletteFormNav extends Component {
               onClick={this.props.handleDrawerOpen}
               className={classNames(classes.menuButton, open && classes.hide)}
             >
-              <MenuIcon />
+              <EditIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
               Create a Palette
