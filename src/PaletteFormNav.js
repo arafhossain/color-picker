@@ -70,7 +70,7 @@ class PaletteFormNav extends Component {
               onClick={this.openForm}
               className={classes.button}
             >
-              ADD NEW PALETTE!
+              ADD PALETTE!
             </Button>
           </div>
         </AppBar>

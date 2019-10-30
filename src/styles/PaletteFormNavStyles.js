@@ -1,4 +1,5 @@
 import { DRAWER_WIDTH } from '../constants';
+import sizes from './sizes';
 
 let styles = theme => ({
   root: {
@@ -26,17 +27,32 @@ let styles = theme => ({
     })
   },
   menuButton: {
-    marginLeft: 12,
+    marginLeft: 12, 
     marginRight: 20
   },
   navButtons: {
     marginRight: "1rem",
     '& a':{
       textDecoration: 'none'
+    },
+    [sizes.down('md')]: {
+      flexDirection: "row",
+    },
+    [sizes.down('xs')]: {
+      marginRight: '0.5rem'
     }
   },
   button: {
     margin: "0 0.5rem",
+    [sizes.down('md')]: {    
+      margin: '0.2rem',
+      padding: '0.4 rem',
+      display: props => (props.open ? "none" : "inline-flex")
+    },
+    [sizes.down('xs')]: {
+      margin: '0 0.2rem',
+      padding: '0.3rem',
+    }
   },
 
 });

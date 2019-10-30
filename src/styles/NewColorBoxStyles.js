@@ -1,3 +1,5 @@
+import sizes from './sizes';
+
 let styles = {
   root: {
     width: "20%",
@@ -5,7 +7,19 @@ let styles = {
     margin: "0 auto",
     display: "inline-block",
     position: "relative",
-    marginBottom: "-5px"
+    marginBottom: "-5px",
+    [sizes.down('lg')] : {
+      width: '25%',
+      height: '20%'
+    },
+    [sizes.down('md')] : {
+      width: '50%',
+      height: '10%'
+    },
+    [sizes.down('sm')] : {
+      width: '100%',
+      height: '5%',
+    }
   },
   boxContent: {
     position: "absolute",
@@ -18,7 +32,10 @@ let styles = {
     textTransform: "uppercase",
     fontSize: "12px",
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    [sizes.down('sm')] : {
+      padding: '0'
+    }
   },
   deleteIcon: {
     color: "rgba(0,0,0,0.5)",
