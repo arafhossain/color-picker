@@ -5,7 +5,6 @@ import styles from './styles/PaletteListStyles'
 import {Link} from 'react-router-dom';
 class PaletteList extends Component {
   goToPalette(id){
-    console.log('Click!')
     this.props.history.push(`/palette/${id}`)
   }
   render() {

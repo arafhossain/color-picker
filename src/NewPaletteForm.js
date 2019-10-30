@@ -10,62 +10,10 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ColorPicker from "./ColorPicker";
 import Button from "@material-ui/core/Button";
 import NewColorBoxList from "./NewColorBoxList";
-import { arrayMove } from "react-sortable-hoc";
+import arrayMove from 'array-move';
 import PaletteFormNav from "./PaletteFormNav";
-
-export const drawerWidth = 400;
-
-const styles = theme => ({
-  root: {
-    display: "flex"
-  },
-  hide: {
-    display: "none"
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0
-  },
-  drawerPaper: {
-    width: drawerWidth,
-    display: 'flex',
-    alignItems: 'center'
-  },
-  drawerHeader: {
-    display: "flex",
-    alignItems: "center",
-    padding: "0 8px",
-    ...theme.mixins.toolbar,
-    justifyContent: "flex-end"
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing.unit * 3,
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    }),
-    marginLeft: -drawerWidth,
-    height: "calc(100vh - 64px)"
-  },
-  contentShift: {
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    }),
-    marginLeft: 0
-  },
-  drawerContent: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '90%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100%'
-  },
-  buttons: {width: '100%'},
-  button: {width: '50%'}
-});
+import styles from './styles/NewPaletteFormStyles';
+import {DRAWER_WIDTH} from './constants';
 class NewPaletteForm extends Component {
   static defaultProps = {
     maxColors: 20
@@ -145,7 +93,7 @@ class NewPaletteForm extends Component {
           palettes={this.props.palettes}
           savePalette={this.savePalette}
           handleDrawerOpen={this.handleDrawerOpen}
-          drawerWidth={drawerWidth}
+          drawerWidth={DRAWER_WIDTH}
         />
         <Drawer
           className={classes.drawer}
