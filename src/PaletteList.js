@@ -25,6 +25,7 @@ class PaletteList extends Component {
     this.toggleDialog = this.toggleDialog.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.setId = this.setId.bind(this);
+    this.goToPalette = this.goToPalette.bind(this);
   }
   setId(paletteId) {
     this.setState({
@@ -58,8 +59,7 @@ class PaletteList extends Component {
                   {...palette}
                   setId={this.setId}
                   removePalette={this.toggleDialog}
-                  // removePalette={this.props.removePalette}
-                  handleClick={() => this.goToPalette(palette.id)}
+                  handleClick={this.goToPalette}
                   key={palette.id}
                 />
               </CSSTransition>
