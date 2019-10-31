@@ -14,6 +14,7 @@ import arrayMove from "array-move";
 import PaletteFormNav from "./PaletteFormNav";
 import styles from "./styles/NewPaletteFormStyles";
 import { DRAWER_WIDTH } from "./constants";
+import seedColors from './seedColors'
 class NewPaletteForm extends Component {
   static defaultProps = {
     maxColors: 20
@@ -23,7 +24,7 @@ class NewPaletteForm extends Component {
     this.state = {
       open: true,
       currentColor: "red",
-      currentPalette: this.props.palettes[0].colors,
+      currentPalette: seedColors[0].colors,
       newName: ""
     };
     this.handleChange = this.handleChange.bind(this);
