@@ -26,9 +26,9 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors v1",
-    id: "flat-ui-colors-v1",
-    emoji: "🤙",
+    paletteName: "Texas UI Colors",
+    id: "flat-ui-colors-texas",
+    emoji: "🐮",
     colors: [
       { name: "Turquoise", color: "#1abc9c" },
       { name: "Emerald", color: "#2ecc71" },
@@ -53,9 +53,9 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors Dutch",
-    id: "flat-ui-colors-dutch",
-    emoji: "🇳🇱",
+    paletteName: "Russia UI Colors",
+    id: "flat-ui-colors-russia",
+    emoji: "🇷🇺",
     colors: [
       { name: "Sunflower", color: "#FFC312" },
       { name: "Energos", color: "#C4E538" },
@@ -80,7 +80,7 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors American",
+    paletteName: "America UI Colors",
     id: "flat-ui-colors-american",
     emoji: "🇺🇸",
     colors: [
@@ -107,9 +107,9 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors Aussie",
-    id: "flat-ui-colors-aussie",
-    emoji: "🇦🇺",
+    paletteName: "Turkey UI Colors",
+    id: "flat-ui-colors-turkey",
+    emoji: "🇹🇷",
     colors: [
       { name: "Beekeeper", color: "#f6e58d" },
       { name: "SpicedNectarine", color: "#ffbe76" },
@@ -134,7 +134,7 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors British",
+    paletteName: "British UI Colors",
     id: "flat-ui-colors-british",
     emoji: "🇬🇧",
     colors: [
@@ -161,7 +161,7 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors Spanish",
+    paletteName: "Spanish UI Colors",
     id: "flat-ui-colors-spanish",
     emoji: "🇪🇸",
     colors: [
@@ -188,9 +188,9 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors Indian",
-    id: "flat-ui-colors-indian",
-    emoji: "🇮🇳",
+    paletteName: "Greece UI Colors",
+    id: "flat-ui-colors-greece",
+    emoji: "🇬🇷",
     colors: [
       { name: "OrchidOrange", color: "#FEA47F" },
       { name: "SpiroDiscoBall", color: "#25CCF7" },

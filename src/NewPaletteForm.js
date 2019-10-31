@@ -84,7 +84,6 @@ class NewPaletteForm extends Component {
     while(duplicate){
       newColor = allColors[Math.floor(Math.random() * allColors.length)];
       duplicate = this.state.currentPalette.some(color => color.name === newColor.name)
-      console.log(newColor);
     }
     this.setState({ currentPalette: [...this.state.currentPalette, newColor] });
   }
