@@ -6,11 +6,11 @@ class MiniPalette extends Component {
   constructor(props){
     super(props);
     this.state = {}
-    this.deletePalette = this.deletePalette.bind(this);
+    this.recordPaletteId = this.recordPaletteId.bind(this);
   }
-  deletePalette(event){
-    event.stopPropagation();
-    this.props.removePalette(this.props.id)
+  recordPaletteId(event){
+   event.stopPropagation();
+  this.props.setId(this.props.id)
   }
   render() {
     let { classes, paletteName, emoji, colors } = this.props;
@@ -24,7 +24,7 @@ class MiniPalette extends Component {
     return (
       <div className={classes.root} onClick={this.props.handleClick}>
         <div className={classes.delete}>
-          <DeleteIcon className={classes.deleteIcon} onClick={this.deletePalette}/>
+          <DeleteIcon className={classes.deleteIcon} onClick={this.recordPaletteId}/>
         </div>
         <div className={classes.colors}>{miniColorBoxes}</div>
         <h5 className={classes.title}>
