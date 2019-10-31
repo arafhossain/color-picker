@@ -7,7 +7,7 @@ import { Switch, Route } from "react-router-dom";
 import SingleColorPalette from "./SingleColorPalette";
 import NewPaletteForm from "./NewPaletteForm";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import Pages from './Pages'
+import Pages from "./Pages";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -100,6 +100,17 @@ class App extends Component {
                       )}
                       colorId={routeProps.match.params.colorId}
                     />
+                  )}
+                />
+                <Route
+                  render={routeProps => (
+                    <Pages>
+                      <PaletteList
+                        palettes={this.state.palettes}
+                        removePalette={this.removePalette}
+                        {...routeProps}
+                      />
+                    </Pages>
                   )}
                 />
               </Switch>

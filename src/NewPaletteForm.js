@@ -14,7 +14,7 @@ import arrayMove from "array-move";
 import PaletteFormNav from "./PaletteFormNav";
 import styles from "./styles/NewPaletteFormStyles";
 import { DRAWER_WIDTH } from "./constants";
-import seedColors from './seedColors'
+import seedColors from "./seedColors";
 class NewPaletteForm extends Component {
   static defaultProps = {
     maxColors: 20
@@ -79,7 +79,13 @@ class NewPaletteForm extends Component {
   }
   getRandomColor() {
     let allColors = this.props.palettes.map(palette => palette.colors).flat();
-    let newColor = allColors[Math.floor(Math.random() * allColors.length)];
+    let newColor;
+    let duplicate = true;
+    while(duplicate){
+      newColor = allColors[Math.floor(Math.random() * allColors.length)];
+      duplicate = this.state.currentPalette.some(color => color.name === newColor.name)
+      console.log(newColor);
+    }
     this.setState({ currentPalette: [...this.state.currentPalette, newColor] });
   }
 
