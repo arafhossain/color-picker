@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import ColorBox from "./ColorBox";
 import NavBar from "./NavBar";
 import PaletteFooter from "./PaletteFooter";
-import {withStyles } from '@material-ui/styles'
-import styles from './styles/PaletteStyles'
+import { withStyles } from "@material-ui/styles";
+import styles from "./styles/PaletteStyles";
 class Palette extends Component {
   constructor(props) {
     super(props);
@@ -20,29 +20,28 @@ class Palette extends Component {
     this.setState({ colorFormat: value });
   }
   render() {
-    let colorBoxes = this.props.palette.colors[this.state.level].map(color => (
+    let { palette, classes } = this.props;
+    let { level, colorFormat } = this.state;
+    let colorBoxes = palette.colors[level].map(color => (
       <ColorBox
-        background={color[this.state.colorFormat]}
+        background={color[colorFormat]}
         name={color.name}
         key={color.id}
         id={color.id}
-        paletteId={this.props.palette.id}
+        paletteId={palette.id}
         showMore={true}
       />
     ));
     return (
-      <div className={this.props.classes.palette}>
+      <div className={classes.palette}>
         <NavBar
-          level={this.state.level}
+          level={level}
           changeLevel={this.changeLevel}
           handleChange={this.changeFormat}
           showSlider={true}
         />
-        <div className={this.props.classes.paletteColors}>{colorBoxes}</div>
-        <PaletteFooter
-          name={this.props.palette.paletteName}
-          emoji={this.props.palette.emoji}
-        />
+        <div className={classes.paletteColors}>{colorBoxes}</div>
+        <PaletteFooter name={palette.paletteName} emoji={palette.emoji} />
       </div>
     );
   }

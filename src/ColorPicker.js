@@ -42,7 +42,7 @@ class ColorPicker extends Component {
     this.setState({ newColorName: "" });
   }
   render() {
-    let {classes} = this.props;
+    let {classes, maxColors, currentPalette} = this.props;
     let {newColorName, currentColor} = this.state;
     return (
       <div>
@@ -72,9 +72,9 @@ class ColorPicker extends Component {
             style={{ backgroundColor: currentColor }}
             type="submit"
             className={classes.addButton}
-            disabled={this.props.currentPalette.length >= this.props.maxColors}
+            disabled={currentPalette.length >= maxColors}
           >
-            {this.props.currentPalette.length >= this.props.maxColors
+            {currentPalette.length >= maxColors
               ? "Palette Full"
               : "Add Color"}
           </Button>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CopyToClipBoard from "react-copy-to-clipboard";
-import styles from './styles/ColorBoxStyles';
+import styles from "./styles/ColorBoxStyles";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/styles";
 
@@ -16,7 +16,7 @@ class ColorBox extends Component {
     });
   }
   render() {
-    let { name, background, showMore, classes } = this.props;
+    let { name, background, showMore, classes, paletteId, id } = this.props;
     return (
       <CopyToClipBoard text={background} onCopy={this.changeCopyState}>
         <div style={{ background }} className={classes.ColorBox}>
@@ -30,7 +30,7 @@ class ColorBox extends Component {
               classes.showMessage}`}
           >
             <h1>Copied!</h1>
-            <p className={classes.copyText}>{this.props.background}</p>
+            <p className={classes.copyText}>{background}</p>
           </div>
           <div>
             <div className={classes.boxContent}>
@@ -40,7 +40,7 @@ class ColorBox extends Component {
           </div>
           {showMore && (
             <Link
-              to={`/palette/${this.props.paletteId}/${this.props.id}`}
+              to={`/palette/${paletteId}/${id}`}
               onClick={event => event.stopPropagation()}
             >
               <span className={classes.seeMore}>More</span>

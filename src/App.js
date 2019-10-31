@@ -8,7 +8,6 @@ import SingleColorPalette from "./SingleColorPalette";
 import NewPaletteForm from "./NewPaletteForm";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Pages from './Pages'
-import './Page.css'
 class App extends Component {
   constructor(props) {
     super(props);

@@ -8,7 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import "rc-slider/assets/index.css";
 import { withStyles } from "@material-ui/styles";
-import styles from './styles/NavBarStyles.js'
+import styles from "./styles/NavBarStyles.js";
 class NavBar extends Component {
   constructor(props) {
     super(props);
@@ -24,28 +24,29 @@ class NavBar extends Component {
     this.setState({ open: false });
   }
   render() {
-    let { classes } = this.props;
+    let { classes, level, changeLevel, showSlider } = this.props;
+    let { colorFormat, open } = this.state;
     return (
       <header className={classes.NavBar}>
         <div className={classes.logo}>
           <Link to="/">reactcolorpicker</Link>
         </div>
-        {this.props.showSlider && (
+        {showSlider && (
           <div>
-            <span>Level: {this.props.level}</span>
+            <span>Level: {level}</span>
             <div className={classes.slider}>
               <Slider
-                defaultValue={this.props.level}
+                defaultValue={level}
                 min={100}
                 max={900}
                 step={100}
-                onAfterChange={this.props.changeLevel}
+                onAfterChange={changeLevel}
               />
             </div>
           </div>
         )}
         <div className={classes.selectContainer}>
-          <Select value={this.state.colorFormat} onChange={this.handleChange}>
+          <Select value={colorFormat} onChange={this.handleChange}>
             <MenuItem value="hex">Hex - #000000</MenuItem>
             <MenuItem value="rgb">RGB - rgb(0,0,0)</MenuItem>
             <MenuItem value="rgba">RGBA - rgba(0, 0, 0, 0.5)</MenuItem>
@@ -53,11 +54,11 @@ class NavBar extends Component {
         </div>
         <Snackbar
           anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-          open={this.state.open}
+          open={open}
           autoHideDuration={3000}
           message={
             <span id="message-id">
-              Format Changed to {this.state.colorFormat.toUpperCase()}
+              Format Changed to {colorFormat.toUpperCase()}
             </span>
           }
           ContentProps={{

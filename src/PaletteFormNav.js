@@ -7,7 +7,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import EditIcon from '@material-ui/icons/Edit';
+import EditIcon from "@material-ui/icons/Edit";
 import Button from "@material-ui/core/Button";
 import PaletteDialogForm from "./PaletteDialogForm";
 import styles from "./styles/PaletteFormNavStyles";
@@ -30,7 +30,8 @@ class PaletteFormNav extends Component {
     this.setState({ formShowing: false });
   }
   render() {
-    let { classes, open } = this.props;
+    let { classes, open, handleDrawerOpen, palettes, savePalette } = this.props;
+    let { formShowing } = this.state;
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -45,7 +46,7 @@ class PaletteFormNav extends Component {
             <IconButton
               color="inherit"
               aria-label="Open drawer"
-              onClick={this.props.handleDrawerOpen}
+              onClick={handleDrawerOpen}
               className={classNames(classes.menuButton, open && classes.hide)}
             >
               <EditIcon />
@@ -74,10 +75,10 @@ class PaletteFormNav extends Component {
             </Button>
           </div>
         </AppBar>
-        {this.state.formShowing && (
+        {formShowing && (
           <PaletteDialogForm
-            palettes={this.props.palettes}
-            savePalette={this.props.savePalette}
+            palettes={palettes}
+            savePalette={savePalette}
             closeForm={this.closeForm}
           />
         )}

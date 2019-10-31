@@ -44,7 +44,8 @@ class PaletteList extends Component {
     this.toggleDialog();
   }
   render() {
-    let { classes } = this.props;
+    let { classes, palettes } = this.props;
+    let {showDialog} = this.state;
     return (
       <div className={classes.root}>
         <div className={classes.container}>
@@ -53,7 +54,7 @@ class PaletteList extends Component {
             <Link to="/palette/new">Create Palette</Link>
           </nav>
           <TransitionGroup className={classes.palettes}>
-            {this.props.palettes.map(palette => (
+            {palettes.map(palette => (
               <CSSTransition key={palette.id} classNames="fade" timeout={500}>
                 <MiniPalette
                   {...palette}
@@ -67,7 +68,7 @@ class PaletteList extends Component {
           </TransitionGroup>
         </div>
         <Dialog
-          open={this.state.showDialog}
+          open={showDialog}
           aria-labelledby="delete-dialog"
           onClose={this.toggleDialog}
         >

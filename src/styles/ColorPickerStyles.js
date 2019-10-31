@@ -11,7 +11,6 @@ let styles = {
   },
   newColorInput: {
     width: '100%',
-    height: '50px',
     marginTop: '1rem'
   }
 }

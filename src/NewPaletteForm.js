@@ -10,10 +10,10 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ColorPicker from "./ColorPicker";
 import Button from "@material-ui/core/Button";
 import NewColorBoxList from "./NewColorBoxList";
-import arrayMove from 'array-move';
+import arrayMove from "array-move";
 import PaletteFormNav from "./PaletteFormNav";
-import styles from './styles/NewPaletteFormStyles';
-import {DRAWER_WIDTH} from './constants';
+import styles from "./styles/NewPaletteFormStyles";
+import { DRAWER_WIDTH } from "./constants";
 class NewPaletteForm extends Component {
   static defaultProps = {
     maxColors: 20
@@ -83,14 +83,14 @@ class NewPaletteForm extends Component {
   }
 
   render() {
-    const { classes, theme } = this.props;
-    const { open } = this.state;
+    const { classes, theme, palettes, maxColors } = this.props;
+    const { open, currentPalette } = this.state;
 
     return (
       <div className={classes.root}>
         <PaletteFormNav
           open={open}
-          palettes={this.props.palettes}
+          palettes={palettes}
           savePalette={this.savePalette}
           handleDrawerOpen={this.handleDrawerOpen}
           drawerWidth={DRAWER_WIDTH}
@@ -115,7 +115,9 @@ class NewPaletteForm extends Component {
           </div>
           <Divider />
           <div className={classes.drawerContent}>
-            <Typography variant="h4" gutterBottom>Design Your Palette</Typography>
+            <Typography variant="h4" gutterBottom>
+              Design Your Palette
+            </Typography>
             <div className={classes.buttons}>
               <Button
                 variant="contained"
@@ -130,16 +132,14 @@ class NewPaletteForm extends Component {
                 color="primary"
                 onClick={this.getRandomColor}
                 className={classes.button}
-                disabled={
-                  this.state.currentPalette.length >= this.props.maxColors
-                }
+                disabled={currentPalette.length >= maxColors}
               >
                 Random Color
               </Button>
             </div>
             <ColorPicker
-              currentPalette={this.state.currentPalette}
-              maxColors={this.props.maxColors}
+              currentPalette={currentPalette}
+              maxColors={maxColors}
               addToPalette={this.addToPalette}
             />
           </div>
@@ -151,7 +151,7 @@ class NewPaletteForm extends Component {
         >
           <div className={classes.drawerHeader} />
           <NewColorBoxList
-            currentPalette={this.state.currentPalette}
+            currentPalette={currentPalette}
             removeColor={this.removeColor}
             axis="xy"
             onSortEnd={this.onSortEnd}

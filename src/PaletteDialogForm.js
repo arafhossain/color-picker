@@ -40,20 +40,17 @@ class PaletteDialogForm extends Component {
     this.props.savePalette(palette);
   }
   render() {
+    let { closeForm } = this.props;
+    let { stage, newPaletteName } = this.state;
     return (
       <div>
-        <Dialog
-          open={this.state.stage === "emoji"}
-          onClose={this.props.closeForm}
-        >
-           <DialogTitle id="form-dialog-title">
-            Choose an Emoji
-          </DialogTitle>
-          <Picker onSelect={this.savePalette}/>
+        <Dialog open={stage === "emoji"} onClose={closeForm}>
+          <DialogTitle id="form-dialog-title">Choose an Emoji</DialogTitle>
+          <Picker onSelect={this.savePalette} />
         </Dialog>
         <Dialog
-          open={this.state.stage === "form"}
-          onClose={this.props.closeForm}
+          open={stage === "form"}
+          onClose={closeForm}
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title">
@@ -65,7 +62,7 @@ class PaletteDialogForm extends Component {
                 Enter a unique name for your new palette!
               </DialogContentText>
               <TextValidator
-                value={this.state.newPaletteName}
+                value={newPaletteName}
                 name="newPaletteName"
                 label="Palette Name"
                 fullWidth
@@ -78,7 +75,7 @@ class PaletteDialogForm extends Component {
               />
             </DialogContent>
             <DialogActions>
-              <Button onClick={this.props.closeForm} color="primary">
+              <Button onClick={closeForm} color="primary">
                 Cancel
               </Button>
               <Button variant="contained" color="primary" type="submit">
