@@ -7,7 +7,8 @@ import { Switch, Route } from "react-router-dom";
 import SingleColorPalette from "./SingleColorPalette";
 import NewPaletteForm from "./NewPaletteForm";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import './App.css'
+import Pages from './Pages'
+import './Page.css'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -49,45 +50,45 @@ class App extends Component {
       <Route
         render={({ location }) => (
           <TransitionGroup>
-            <CSSTransition key={location.key} classNames="fade">
+            <CSSTransition key={location.key} classNames="page">
               <Switch location={location}>
                 <Route
                   exact
                   path="/palette/new"
                   render={routeProps => (
-                    <div className="page">
+                    <Pages>
                       <NewPaletteForm
                         savePalette={this.savePalette}
                         palettes={this.state.palettes}
                         {...routeProps}
                       />
-                    </div>
+                    </Pages>
                   )}
                 />
                 <Route
                   exact
                   path="/"
                   render={routeProps => (
-                    <div className="page">
+                    <Pages>
                       <PaletteList
                         palettes={this.state.palettes}
                         removePalette={this.removePalette}
                         {...routeProps}
                       />
-                    </div>
+                    </Pages>
                   )}
                 />
                 <Route
                   exact
                   path="/palette/:id"
                   render={routeProps => (
-                    <div className="page">
+                    <Pages>
                       <Palette
                         palette={generatePalette(
                           this.getPalette(routeProps.match.params.id)
                         )}
                       />
-                    </div>
+                    </Pages>
                   )}
                 />
                 <Route
