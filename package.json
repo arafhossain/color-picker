@@ -2,7 +2,7 @@
   "name": "color-picker",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/arafhossain/color-picker",
+  "homepage": "http://arafhossain.github.io/color-picker",
   "dependencies": {
     "@babel/runtime": "^7.6.3",
     "@material-ui/core": "^4.5.1",
