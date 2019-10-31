@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/arafhossain/color-picker/static/css/main.3c215aa1.chunk.css",
+    "main.js": "/arafhossain/color-picker/static/js/main.91bfccc0.chunk.js",
+    "main.js.map": "/arafhossain/color-picker/static/js/main.91bfccc0.chunk.js.map",
+    "runtime-main.js": "/arafhossain/color-picker/static/js/runtime-main.90be3793.js",
+    "runtime-main.js.map": "/arafhossain/color-picker/static/js/runtime-main.90be3793.js.map",
+    "static/css/2.5774dd83.chunk.css": "/arafhossain/color-picker/static/css/2.5774dd83.chunk.css",
+    "static/js/2.ec3a6edf.chunk.js": "/arafhossain/color-picker/static/js/2.ec3a6edf.chunk.js",
+    "static/js/2.ec3a6edf.chunk.js.map": "/arafhossain/color-picker/static/js/2.ec3a6edf.chunk.js.map",
+    "index.html": "/arafhossain/color-picker/index.html",
+    "precache-manifest.831980274a1165b8a51cbf7314053569.js": "/arafhossain/color-picker/precache-manifest.831980274a1165b8a51cbf7314053569.js",
+    "service-worker.js": "/arafhossain/color-picker/service-worker.js",
+    "static/css/2.5774dd83.chunk.css.map": "/arafhossain/color-picker/static/css/2.5774dd83.chunk.css.map",
+    "static/css/main.3c215aa1.chunk.css.map": "/arafhossain/color-picker/static/css/main.3c215aa1.chunk.css.map",
+    "static/media/bg.svg": "/arafhossain/color-picker/static/media/bg.1ffa1ada.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.90be3793.js",
+    "static/css/2.5774dd83.chunk.css",
+    "static/js/2.ec3a6edf.chunk.js",
+    "static/css/main.3c215aa1.chunk.css",
+    "static/js/main.91bfccc0.chunk.js"
+  ]
+}
