@@ -1,3 +1,8 @@
+# Color Picker
+This project is a modified version of the https://flatuicolors.com website. Built on JavaScript's React framework, it allows users to view different default palettes, where they can copy a color's hex, RGB, or RGBA code from a list of available colors and shades - or choose to create their own palette with user-chosen or colors randomly selected from the default list. 
+
+Currently hosted on gh pages: https://arafhossain.github.io/color-picker
+- - -
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
