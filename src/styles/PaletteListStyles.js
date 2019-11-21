@@ -2,13 +2,13 @@ import sizes from "./sizes";
 import bg from "./bg.svg";
 
 export default {
-  "@global" : {
-    '.fade-exit' : {
+  "@global": {
+    ".fade-exit": {
       opacity: 1
     },
-    '.fade-exit-active': {
+    ".fade-exit-active": {
       opacity: 0,
-      transition: 'opacity 500ms ease-out'
+      transition: "opacity 500ms ease-out"
     }
   },
   root: {
@@ -20,8 +20,8 @@ export default {
     backgroundColor: "#330033",
     backgroundImage: `url(${bg})`
   },
-  title:{
-    fontSize: '1.8rem'
+  title: {
+    fontSize: "1.8rem"
   },
   container: {
     width: "55%",
@@ -42,7 +42,8 @@ export default {
     justifyContent: "space-between",
     color: "white",
     alignItems: "center",
-    "& a": { color: "white", textDecoration: "none" }
+    "& a": { color: "white", textDecoration: "none", fontWeight: "800" },
+    "& button": { marginRight: "30px" }
   },
   palettes: {
     boxSizing: "border-box",

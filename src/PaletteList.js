@@ -15,6 +15,7 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import red from "@material-ui/core/colors/red";
 import green from "@material-ui/core/colors/green";
+import Button from '@material-ui/core/Button';
 class PaletteList extends Component {
   constructor(props) {
     super(props);
@@ -45,13 +46,15 @@ class PaletteList extends Component {
   }
   render() {
     let { classes, palettes } = this.props;
-    let {showDialog} = this.state;
+    let { showDialog } = this.state;
     return (
       <div className={classes.root}>
         <div className={classes.container}>
           <nav className={classes.nav}>
             <h2 className={classes.title}>Color Picker</h2>
-            <Link to="/palette/new">Create Palette</Link>
+            <Button variant="contained" color="secondary">
+              <Link to="/palette/new">Create Palette</Link>
+            </Button>
           </nav>
           <TransitionGroup className={classes.palettes}>
             {palettes.map(palette => (
